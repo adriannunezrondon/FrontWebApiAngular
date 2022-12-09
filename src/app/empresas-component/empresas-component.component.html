@@ -1,0 +1,35 @@
+<h2>Listado de Empresas</h2>
+<p *ngIf="!(arrEmpresas && arrEmpresas.length)">No existen empresas para mostrar.Loading....</p>
+
+<div class="container" >
+  
+
+        <table class="table table-striped" >
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre Empresa</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of arrEmpresas">
+                <th scope="row">{{emp.id}}</th>
+                <td>{{emp.nombre}}</td>
+                <td>{{emp.direccion}}</td>
+                <td><button class="btn btn-warning" value="editar">Editar</button>
+                    <button class="btn btn-danger" value="editar">Borrar</button>
+                </td>
+              </tr>
+ 
+            </tbody>
+          </table>
+
+  
+
+</div>
+
+<button class="btn btn-primary" (click)="volverHome()" style="text-align: end;">ir a Home</button>
+
+<!--*ngIf="(arrEmpresas && arrEmpresas.length)"-->

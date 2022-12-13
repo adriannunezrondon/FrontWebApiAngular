@@ -1,7 +1,13 @@
 <h2>Listado de Empresas</h2>
-<p *ngIf="!(arrEmpresas && arrEmpresas.length)">No existen empresas para mostrar.Loading....</p>
+<p *ngIf="!(arrEmpresas && arrEmpresas.length) else SiHayProductos">No existen empresas para mostrar.Loading....</p>
+<button class="btn btn-primary" (click)="volverHome()" style="text-align: end;">ir a Home</button>
 
-<div class="container" >
+
+
+
+<ng-template #SiHayProductos>
+<button (click)="FormInsertarEmp()"class="btn btn-success"  style="text-align: left;">Agregar Empresa</button>
+<div class="container" *ngIf="(arrEmpresas && arrEmpresas.length)">
   
 
         <table class="table table-striped" >
@@ -18,7 +24,7 @@
                 <th scope="row">{{emp.id}}</th>
                 <td>{{emp.nombre}}</td>
                 <td>{{emp.direccion}}</td>
-                <td><button class="btn btn-warning" value="editar">Editar</button>
+                <td><button class="btn btn-warning" value="editar">Editar</button>&nbsp;  
                     <button class="btn btn-danger" value="editar">Borrar</button>
                 </td>
               </tr>
@@ -30,6 +36,6 @@
 
 </div>
 
-<button class="btn btn-primary" (click)="volverHome()" style="text-align: end;">ir a Home</button>
 
+</ng-template>
 <!--*ngIf="(arrEmpresas && arrEmpresas.length)"-->

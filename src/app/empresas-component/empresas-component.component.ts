@@ -14,20 +14,19 @@ export class EmpresasComponentComponent implements OnInit {
 
     arrEmpresas: IEmpresa[] = [];
 
-    
-
-
-///////////////////////////////////////////////////////////********* */
-  constructor(private ruta:Router, private ServicioEmp: ServicioEmpresasService) { 
-   
-  }
-
- 
 
   //*********************************************************** */
   ngOnInit(): void {
-    this.ServicioEmp.getmpresas().subscribe(
-      EmpresasWebService => this.arrEmpresas = EmpresasWebService);
+
+    try{ 
+          this.ServicioEmp.getEmpresas().subscribe(
+          EmpresasWebService => this.arrEmpresas = EmpresasWebService);
+
+    } catch(e){
+      console.log("Error al cargar las empresas"+e);
+    }
+
+
   }
 
 //************************************************************** */
@@ -35,6 +34,13 @@ volverHome(){
 
 this.ruta.navigate(['']);
 
+}
+
+
+FormInsertarEmp(){this.ruta.navigate(['insertar-empresas']);}
+
+constructor(private ruta:Router, private ServicioEmp: ServicioEmpresasService) { 
+   
 }
 
 }

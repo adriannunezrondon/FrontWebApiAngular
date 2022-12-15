@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
-import { Observable, observable } from 'rxjs';
-import { DefaultConection } from 'src/Api_Setting';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IEmpresa } from './empresas-component/IEmpresa';
 
 
@@ -10,18 +10,50 @@ import { IEmpresa } from './empresas-component/IEmpresa';
 })
 export class ServicioEmpresasService {
  
- 
-  private apiUrl = DefaultConection.urlApi + "api/Empresa/Empresas";
-  //private apiUrl="http://localhost:5189/api";
+  url :string = environment.baseUrlApi +"api/Empresa/";
 
+//*************************************************************************************** */
   getEmpresas():Observable<IEmpresa[]>{ 
     //debugger;
-    return this.http.get<IEmpresa[]>(this.apiUrl);
+    return this.http.get<IEmpresa[]>(this.url+"Empresas");
    
 
   }
+//****************************************************************************************** */
 
-  constructor(private http: HttpClient/*, @Inject('BASE_URL') private baseUrl:string*/) { }
+   AddEmpresa(Nuevaempresa: IEmpresa):Observable <IEmpresa> {
+      return this.http.post<IEmpresa>(this.url + "Insertar_Empresa", Nuevaempresa);
+   }
+
+
+//****************************************************************************************** */
+
+   getEmpresaPorID(id: string):Observable<IEmpresa>{
+    
+      return this.http.get<IEmpresa>(this.url+id);
+   }
+
+
+//****************************************************************************************** */
+
+   putEmpresa(empresa:IEmpresa):Observable<IEmpresa>{
+   
+    return this.http.put<IEmpresa>(this.url+"Modificar",empresa)
+
+   }
+
+
+//****************************************************************************************** */
+
+   delEmpresa(id:string){
+   
+    return this.http.delete(this.url+id);
+
+   }
+
+   
+//****************************************************************************************** */
+  constructor(private http: HttpClient) { }
 
   }
 

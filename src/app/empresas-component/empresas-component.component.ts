@@ -22,12 +22,30 @@ export class EmpresasComponentComponent implements OnInit {
           this.ServicioEmp.getEmpresas().subscribe(
           EmpresasWebService => this.arrEmpresas = EmpresasWebService);
 
+
     } catch(e){
       console.log("Error al cargar las empresas"+e);
     }
 
 
   }
+
+Mostrar(e:string){
+  //console.log(e);
+  this.ruta.navigate(["modificar/empresas/"+e]);
+}
+
+
+
+Eliminar(e:string){
+ // console.log(e)
+    if(confirm("seguro que desea Eliminar el elemento???")){
+      this.ruta.navigate(["eliminar/empresas/"+e]);
+    }
+       
+   
+
+}
 
 //************************************************************** */
 volverHome(){
@@ -39,9 +57,7 @@ this.ruta.navigate(['']);
 
 FormInsertarEmp(){this.ruta.navigate(['insertar-empresas']);}
 
-constructor(private ruta:Router, private ServicioEmp: ServicioEmpresasService) { 
-   
-}
+constructor(private ruta:Router, private ServicioEmp: ServicioEmpresasService) { }
 
 }
 

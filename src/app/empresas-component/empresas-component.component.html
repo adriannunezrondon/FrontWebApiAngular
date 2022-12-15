@@ -1,4 +1,6 @@
 <h2>Listado de Empresas</h2>
+
+<br>
 <p *ngIf="!(arrEmpresas && arrEmpresas.length) else SiHayProductos">No existen empresas para mostrar.Loading....</p>
 <button class="btn btn-primary" (click)="volverHome()" style="text-align: end;">ir a Home</button>
 
@@ -13,7 +15,7 @@
         <table class="table table-striped" >
             <thead>
               <tr>
-                <th scope="col">Id</th>
+                <!--<th scope="col">Id</th>-->
                 <th scope="col">Nombre Empresa</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">acciones</th>
@@ -21,11 +23,12 @@
             </thead>
             <tbody>
               <tr *ngFor="let emp of arrEmpresas">
-                <th scope="row">{{emp.id}}</th>
+                <!--<th scope="row">{{emp.id}}</th>-->
+                <input type="hidden" name="id" value="{{emp.id}}" #id>
                 <td>{{emp.nombre}}</td>
                 <td>{{emp.direccion}}</td>
-                <td><button class="btn btn-warning" value="editar">Editar</button>&nbsp;  
-                    <button class="btn btn-danger" value="editar">Borrar</button>
+                <td><button class="btn btn-warning" value="editar" (click)="Mostrar(id.value)">Editar</button>&nbsp;  
+                    <button class="btn btn-danger" value="editar" (click)="Eliminar(id.value)">Borrar</button>
                 </td>
               </tr>
  

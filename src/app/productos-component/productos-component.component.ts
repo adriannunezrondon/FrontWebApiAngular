@@ -26,7 +26,15 @@ export class ProductosComponentComponent implements OnInit {
 
   }
 
+editarProducto(id:string){
+  console.log(id)
+  this.ruta.navigate(['editar/producto/'+id])
+}
 
+deleteProducto(id:string){
+  console.log(id)
+  this.ruta.navigate(['eliminar/producto/'+id])
+}
   
 
   volverHome(){
@@ -35,7 +43,7 @@ export class ProductosComponentComponent implements OnInit {
     
     }
 
-    
+    IrInsertarProducto(){this.ruta.navigate(['insertar-producto'])}
 
     constructor(private ruta:Router, private servicioProducto:ProductoServicioService) {  }
 

@@ -10,7 +10,7 @@
 <ng-template #SiHayProductos>
 
 
-<button class="btn btn-success" style="text-align: right;">Insertar</button> Inserte un nuevo Producto
+<button class="btn btn-success" style="text-align: right;" (click)="IrInsertarProducto()">Insertar</button> Inserte un nuevo Producto
 
 <div class="container" *ngIf="(arrayProductos && arrayProductos.length)" >
   
@@ -29,14 +29,15 @@
             <tbody>
               <tr *ngFor="let Producto of arrayProductos">
                 <!--<th scope="row">{{Producto.id}}</th>-->
+                <input type="hidden" name="id" value="{{Producto.id}}" #id>
                 <td>{{Producto.nombre}}</td>
                 <td>{{Producto.categorias}}</td>
                 <td>{{Producto.descripcion}}</td>
                 <td>{{Producto.precio}}</td>
                 <td>{{Producto.unidades}}</td>
 
-                <td><button class="btn btn-warning" value="editar">Editar</button>&nbsp;  
-                    <button class="btn btn-danger" value="editar">Borrar</button>
+                <td><button class="btn btn-warning" value="editar" (click)="editarProducto(id.value)">Editar</button>&nbsp;  
+                    <button class="btn btn-danger" value="delete"  (click)="deleteProducto(id.value)">Borrar</button>
                 </td>
               </tr>
  

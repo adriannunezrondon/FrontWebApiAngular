@@ -1,0 +1,74 @@
+<h1>Editar Producto</h1>
+
+<br>
+<br>
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm"  (ngSubmit)="updateProducto()">
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombre" 
+                    name ="nombre" placeholder="Nombre del Producto" [(ngModel)]="Producto.nombre">
+                   <input type="hidden" name="id" id="id" [(ngModel)]="Producto.id">
+                  </div>
+                </div>
+                <br/>
+                <div class="form-group row">
+                  <label for="text" class="col-sm-2 col-form-label">Categoria</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="categorias" name="categorias" 
+                    placeholder="Categoria de Producto" [(ngModel)]="Producto.categorias">
+                  </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Descripcion</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="descripcion" 
+                      name ="descripcion" placeholder="Descripcion" [(ngModel)]="Producto.descripcion">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Precio</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="precio" 
+                      name ="precio" placeholder="Precio del Producto" [(ngModel)]="Producto.precio">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Unidades</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="unidades" 
+                      name ="unidades" placeholder="Unidades" [(ngModel)]="Producto.unidades">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Empresa</label>
+                    <div class="col-sm-10">
+                      
+                      <select class="form-control" id="empresaID" 
+                      name ="empresaID" placeholder="Empresa" [(ngModel)]="Producto.empresaID">
+                      <option *ngIf="!(listadoEmpresas.length)">No se encuentran empresas</option>
+                      <option  *ngFor="let emp of listadoEmpresas" value="{{emp.id}}">{{emp.nombre}}</option>
+                      </select>
+
+                    </div>
+                  </div>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-warning" [disabled]="form.invalid">Salvar</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+    
+
+</div>

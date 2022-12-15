@@ -1,5 +1,4 @@
-<h1>Insertar Empresa</h1>
-
+<h1>Editar Empresa</h1>
 <br>
 <br>
 <br>
@@ -7,13 +6,13 @@
 
     <div class="row">
         <div class="col-6">
-            <form #form="ngForm"  (ngSubmit)="addEmpresa()">
+            <form #form="ngForm"  (ngSubmit)="updateEmpresa()">
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="nombre" 
-                    name ="nombre" placeholder="Nombre de la Empresa" [(ngModel)]="Nuevaempresa.nombre">
-                   <input type="hidden" name="id" id="id" [(ngModel)]="Nuevaempresa.id">
+                    name ="nombre"   [(ngModel)]="editarEmpresa.nombre">
+                   <input type="hidden" name="id" id="id" [(ngModel)]="editarEmpresa.id">
                   </div>
                 </div>
                 <br/>
@@ -21,12 +20,12 @@
                   <label for="text" class="col-sm-2 col-form-label">Direccion</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="direccion" name="direccion" 
-                    placeholder="Direccion de la Empresa" [(ngModel)]="Nuevaempresa.direccion">
+                    placeholder="Direccion de la Empresa" [(ngModel)]="editarEmpresa.direccion">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Guardar</button>
+                    <button type="submit" class="btn btn-warning" [disabled]="form.invalid">Salvar</button>
                   </div>
                 </div>
               </form>

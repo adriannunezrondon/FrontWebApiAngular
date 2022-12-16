@@ -78,7 +78,7 @@ export class ProductoEditarComponent implements OnInit {
 
 
   updateProducto(){
-    console.log("Entro")
+   // console.log("Entro")
         this.servicioProducto.putProducto(this.Producto)
         .subscribe({
           next: (response)=>{ this.ruta.navigate(['Productos']);}

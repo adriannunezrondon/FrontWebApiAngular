@@ -9,13 +9,19 @@ import { IEmpresa } from '../IEmpresa';
   styleUrls: ['./empresas-delete.component.css']
 })
 export class EmpresasDeleteComponent implements OnInit {
-
+/*
   empresaeliminar : IEmpresa = {
     id: 0,
     nombre: '',
     direccion: '',
-  }
-  constructor(private rutaActiva: ActivatedRoute, private servicioEmpresa: ServicioEmpresasService, private route:Router) { }
+  }*/
+  constructor(private rutaActiva: ActivatedRoute
+             , private servicioEmpresa: ServicioEmpresasService
+             , private route:Router
+    ) { }
+
+
+
 
   ngOnInit(): void {
     this.rutaActiva.paramMap.subscribe({

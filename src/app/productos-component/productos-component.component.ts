@@ -32,8 +32,9 @@ editarProducto(id:string){
 }
 
 deleteProducto(id:string){
-  console.log(id)
-  this.ruta.navigate(['eliminar/producto/'+id])
+  debugger
+  if(confirm("Seguro desae Eliminar el Producto!!!"))
+      this.ruta.navigate(['eliminar/producto/'+id])
 }
   
 

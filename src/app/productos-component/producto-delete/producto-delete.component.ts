@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductoServicioService } from 'src/app/producto-servicio.service';
 
 @Component({
   selector: 'app-producto-delete',
@@ -7,9 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductoDeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private urlActual: ActivatedRoute
+             ,private ServicioProducto: ProductoServicioService
+             ,private ruta: Router
+             ) 
+  { }
 
+
+
+
+  
   ngOnInit(): void {
+
+    this.urlActual.paramMap.subscribe({
+      next:(parametro) =>{
+
+        const id=parametro.get('id')
+        if(id){
+
+          this.ServicioProducto.deleteProducto(id)
+          .subscribe({
+            next:(producto) => {this.ruta.navigate(['Productos'])}
+
+          });
+
+        }
+
+      }
+
+
+    });
+
   }
 
 }

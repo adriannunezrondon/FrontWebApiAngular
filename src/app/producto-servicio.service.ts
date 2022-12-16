@@ -33,9 +33,21 @@ getProductoId(id:string):Observable<IProducto>{
     return this.http.get<IProducto>(this.url+id);
  }
 
+
+ //********************************************************************************* */
+
  putProducto(Producto:IProducto):Observable<IProducto>{
     return this.http.put<IProducto>(this.url+"Editar",Producto);
  }
+ 
+
+ //******************************************************************************** */
+
+ deleteProducto(id: string){
+    return this.http.delete(this.url+id);
+ }
+
+ //******************************************************************************** */
 
 
 

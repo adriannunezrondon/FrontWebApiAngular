@@ -55,6 +55,7 @@
                       
                       <select class="form-control" id="empresaID" 
                       name ="empresaID" placeholder="Empresa" [(ngModel)]="NuevoProducto.empresaID">
+                      <option value="{{NuevoProducto.empresaID}}" selected="selected">Seleccione la Empresa...</option>
                       <option *ngIf="!(listadoEmpresas.length)">No se encuentran empresas</option>
                       <option  *ngFor="let emp of listadoEmpresas" value="{{emp.id}}">{{emp.nombre}}</option>
                       </select>

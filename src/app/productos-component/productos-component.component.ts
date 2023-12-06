@@ -18,7 +18,7 @@ export class ProductosComponentComponent implements OnInit {
   
   ngOnInit(): void {
     try{ 
-           debugger;
+          // debugger;
           /* this.servicioProducto.getProducto().subscribe(res=>{
            this.arrayProductos=res;});   */
 
@@ -40,7 +40,7 @@ editarProducto(id:string){
 }
 
 deleteProducto(id:string){
-  debugger
+  //debugger
   if(confirm("Seguro desae Eliminar el Producto!!!"))
       this.ruta.navigate(['eliminar/producto/'+id])
 }

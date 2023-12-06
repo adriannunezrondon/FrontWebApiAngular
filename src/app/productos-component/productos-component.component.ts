@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductoServicioService } from '../producto-servicio.service';
 import { IProducto } from './IProducto';
+import { IdtoProducto } from './IdtoProductos';
 
 @Component({
   selector: 'app-productos-component',
@@ -11,13 +12,20 @@ import { IProducto } from './IProducto';
 export class ProductosComponentComponent implements OnInit {
     
   arrayProductos:IProducto[]=[];
+  arrayDtoProductos:IdtoProducto[]=[];
     //arrayProductos:any[]=[];
   
   
   ngOnInit(): void {
     try{ 
-           this.servicioProducto.getProducto().subscribe(res=>{
-           this.arrayProductos=res;});
+           debugger;
+          /* this.servicioProducto.getProducto().subscribe(res=>{
+           this.arrayProductos=res;});   */
+
+           this.servicioProducto.getDtoProducto().subscribe(res=>{
+           this.arrayDtoProductos = res;
+           console.log(this.arrayDtoProductos);
+           });
 
     } catch(e){
 

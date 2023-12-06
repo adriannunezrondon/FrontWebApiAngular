@@ -2,7 +2,7 @@
 <h2>Listado de Productos</h2>
 <br>
 
-<p *ngIf="!(arrayProductos && arrayProductos.length) else SiHayProductos">No existen Productos para mostrar.Loading....</p>
+<p *ngIf="!(arrayDtoProductos && arrayDtoProductos.length) else SiHayProductos">No existen Productos para mostrar.Loading....</p>
 <button class="btn btn-primary" (click)="volverHome()" style="text-align: left;">ir a Home</button>
 
 
@@ -14,7 +14,7 @@
 
 <button class="btn btn-success" style="text-align: right;" (click)="IrInsertarProducto()">Insertar</button> Inserte un nuevo Producto
 
-<div class="container" *ngIf="(arrayProductos && arrayProductos.length)" >
+<div class="container" *ngIf="(arrayDtoProductos && arrayDtoProductos.length)" >
   
 
         <table class="table table-striped" >
@@ -26,10 +26,11 @@
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Unidades</th>
+                <th scope="col">Empresa</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let Producto of arrayProductos">
+              <tr *ngFor="let Producto of arrayDtoProductos">
                 <!--<th scope="row">{{Producto.id}}</th>-->
                 <input type="hidden" name="id" value="{{Producto.id}}" #id>
                 <td>{{Producto.nombre}}</td>
@@ -37,6 +38,7 @@
                 <td>{{Producto.descripcion}}</td>
                 <td>{{Producto.precio}}</td>
                 <td>{{Producto.unidades}}</td>
+                <td>{{Producto.empresa}}</td>
 
                 <td><button class="btn btn-warning" value="editar" (click)="editarProducto(id.value)">Editar</button>&nbsp;  
                     <button class="btn btn-danger" value="delete"  (click)="deleteProducto(id.value)">Borrar</button>

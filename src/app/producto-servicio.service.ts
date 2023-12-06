@@ -13,7 +13,11 @@ export class ProductoServicioService {
 //********************************************************************************* */
 
   getProducto():Observable<any>{    
-     return this.http.get<any>(this.url +"MostrarProductos");
+     return this.http.get<any>(this.url +"Productos");
+  };
+
+  getDtoProducto():Observable<any>{
+    return this.http.get<any>(this.url +"DTOProductos")
   };
 
 

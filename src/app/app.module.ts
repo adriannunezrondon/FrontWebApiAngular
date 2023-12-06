@@ -16,6 +16,7 @@ import { EmpresasModificarComponent } from './empresas-component/empresas-modifi
 import { EmpresasDeleteComponent } from './empresas-component/empresas-delete/empresas-delete.component';
 import { ProductoEditarComponent } from './productos-component/producto-editar/producto-editar.component';
 import { ProductoDeleteComponent } from './productos-component/producto-delete/producto-delete.component';
+import { LoginComponent } from './login/login.component';
 
 
 const rutas:Routes=[
@@ -28,6 +29,7 @@ const rutas:Routes=[
 {path:'eliminar/empresas/:id', component:EmpresasDeleteComponent},
 {path:'editar/producto/:id', component: ProductoEditarComponent},
 {path:'eliminar/producto/:id', component: ProductoDeleteComponent},
+{path:'login', component:LoginComponent}
 
 
 ];
@@ -45,6 +47,7 @@ const rutas:Routes=[
     EmpresasDeleteComponent,
     ProductoEditarComponent,
     ProductoDeleteComponent,
+    LoginComponent,
     
   
   ],

@@ -24,7 +24,7 @@ export class ProductosComponentComponent implements OnInit {
 
            this.servicioProducto.getDtoProducto().subscribe(res=>{
            this.arrayDtoProductos = res;
-           console.log(this.arrayDtoProductos);
+          // console.log(this.arrayDtoProductos);
            });
 
     } catch(e){

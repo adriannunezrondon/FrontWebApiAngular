@@ -37,10 +37,11 @@ export class ProductoEditarComponent implements OnInit {
   { }
 
   ngOnInit(): void {
-
+   debugger;
     try{ 
       this.servicioEmpresa.getEmpresas().subscribe(
-      res =>{this.listadoEmpresas = res;});
+      res => this.listadoEmpresas = res);
+      console.log(this.listadoEmpresas);
   
 
        }     
@@ -59,7 +60,7 @@ export class ProductoEditarComponent implements OnInit {
               this.servicioProducto.getProductoId(id)
                .subscribe({
                 next:(response) =>{ this.Producto=response;
-                 // console.log(response);
+                 // console.log(this.Producto);
                   
                 },
       

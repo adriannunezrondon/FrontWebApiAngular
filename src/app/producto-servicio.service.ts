@@ -34,7 +34,7 @@ export class ProductoServicioService {
 
 getProductoId(id:string):Observable<IProducto>{
     
-    return this.http.get<IProducto>(this.url+id);
+    return this.http.get<IProducto>(this.url+"BuscarProdictoPorId "+id);
  }
 
 

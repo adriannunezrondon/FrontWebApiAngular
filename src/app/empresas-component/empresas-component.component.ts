@@ -39,7 +39,7 @@ Mostrar(e:string){
 
 Eliminar(e:string){
  // console.log(e)
-    if(confirm("seguro que desea Eliminar el elemento???")){
+    if(confirm("seguro que desea Eliminar el elemento??? "+e)){
       this.ruta.navigate(["eliminar/empresas/"+e]);
     }
        

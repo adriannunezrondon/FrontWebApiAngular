@@ -35,14 +35,21 @@ export class ProductosComponentComponent implements OnInit {
   }
 
 editarProducto(id:string){
-  console.log(id)
+  //console.log(id)
   this.ruta.navigate(['editar/producto/'+id])
 }
 
 deleteProducto(id:string){
-  //debugger
-  if(confirm("Seguro desae Eliminar el Producto!!!"))
-      this.ruta.navigate(['eliminar/producto/'+id])
+  
+  if(confirm("Seguro desea Eliminar el Producto!!!"))
+  { 
+      //this.ruta.navigate(['eliminar/producto/'+id]);
+       this.servicioProducto.deleteProducto(id).subscribe(()=>{
+          console.log("Recurso Eliminado");
+          
+       });
+  }    
+
 }
   
 

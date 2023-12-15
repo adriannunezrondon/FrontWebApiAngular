@@ -40,15 +40,18 @@ getProductoId(id:string):Observable<IProducto>{
 
  //********************************************************************************* */
 
- putProducto(Producto:IProducto):Observable<IProducto>{
-    return this.http.put<IProducto>(this.url+"Editar",Producto);
+ putProducto(id:number, Producto:IProducto):Observable<IProducto>{
+    return this.http.put<IProducto>(`${this.url}${id}`,Producto);
  }
  
 
  //******************************************************************************** */
 
- deleteProducto(id: string){
-    return this.http.delete(this.url+id);
+ deleteProducto(id: string): Observable<IProducto>{
+  debugger;
+  console.log(`${this.url+"Eliminar_Producto"}${id}`);
+    return this.http.delete<IProducto>(`${this.url+"Eliminar_Producto/"}${id}`);
+
  }
 
  //******************************************************************************** */

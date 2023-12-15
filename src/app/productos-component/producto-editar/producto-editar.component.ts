@@ -37,7 +37,7 @@ export class ProductoEditarComponent implements OnInit {
   { }
 
   ngOnInit(): void {
-   debugger;
+   //debugger;
     try{ 
       this.servicioEmpresa.getEmpresas().subscribe(
       res => this.listadoEmpresas = res);
@@ -78,9 +78,9 @@ export class ProductoEditarComponent implements OnInit {
     
 
 
-  updateProducto(){
-   // console.log("Entro")
-        this.servicioProducto.putProducto(this.Producto)
+  updateProducto(id:number){
+    //console.log("Entro: "+id)
+        this.servicioProducto.putProducto(id, this.Producto)
         .subscribe({
           next: (response)=>{ this.ruta.navigate(['Productos']);}
         });

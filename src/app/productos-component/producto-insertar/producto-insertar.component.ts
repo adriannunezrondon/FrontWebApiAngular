@@ -46,7 +46,7 @@ export class ProductoInsertarComponent implements OnInit {
   }
 
   addProducto(){
-
+    //debugger
     this.servicioProducto.addProducto(this.NuevoProducto)
     .subscribe({
       next: (producto)=>{this.ruta.navigate(['Productos']);}

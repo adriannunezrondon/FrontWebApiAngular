@@ -13,6 +13,8 @@ export class ProductosComponentComponent implements OnInit {
     
   arrayProductos:IProducto[]=[];
   arrayDtoProductos:IdtoProducto[]=[];
+  ProductosFiltrados:IdtoProducto[]=[];
+  Patron : string = '';
     //arrayProductos:any[]=[];
   
   
@@ -21,11 +23,15 @@ export class ProductosComponentComponent implements OnInit {
           // debugger;
           /* this.servicioProducto.getProducto().subscribe(res=>{
            this.arrayProductos=res;});   */
-
-           this.servicioProducto.getDtoProducto().subscribe(res=>{
-           this.arrayDtoProductos = res;
+           
+               this.servicioProducto.getDtoProducto().subscribe(res=>{
+               this.arrayDtoProductos = res;
+              // console.log(this.Patron);
           // console.log(this.arrayDtoProductos);
            });
+         
+          
+          
 
     } catch(e){
 
@@ -46,12 +52,19 @@ deleteProducto(id:string){
       //this.ruta.navigate(['eliminar/producto/'+id]);
        this.servicioProducto.deleteProducto(id).subscribe(()=>{
           console.log("Recurso Eliminado");
-          
+         // this.ruta.navigate(['Productos']);
+         window.location.reload();
        });
   }    
 
 }
   
+// Método que se llama cada vez que el término de búsqueda cambia
+actualizarLista() {  
+  this.ProductosFiltrados = this.arrayDtoProductos.filter(producto =>
+    producto.nombre.toLowerCase().includes(this.Patron.toLowerCase())
+  );
+}
 
   volverHome(){
 

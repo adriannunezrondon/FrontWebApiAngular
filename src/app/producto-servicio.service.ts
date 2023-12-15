@@ -26,7 +26,7 @@ export class ProductoServicioService {
 
   addProducto(NuevoProducto:IProducto):Observable<IProducto>{
 
-    return this.http.post<IProducto>(this.url+"insertarProducto",NuevoProducto)
+    return this.http.post<IProducto>(this.url+"insertarProductos",NuevoProducto);
   }
 
   
